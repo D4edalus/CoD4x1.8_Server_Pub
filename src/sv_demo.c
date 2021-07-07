@@ -31,7 +31,7 @@
 #include "q_platform.h"
 #include "sys_main.h"
 #include "net_game_conf.h"
-
+#include "plugin_handler.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -142,7 +142,7 @@ void SV_StopRecord( client_t *cl ) {
 	FS_FCloseDemoFile( &cl->demofile );
 	cl->demorecording = qfalse;
 	Com_Printf(CON_CHANNEL_SERVERDEMO, "Stopped demo for: %s\n", cl->name);
-
+	PHandler_Event(PLUGINS_ONDEMOARRIVED,cl,cl->demoName);
 	if(!*sv_demoCompletedCmd->string)
 		return;
 

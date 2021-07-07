@@ -51,7 +51,7 @@
 	PCL void OnPlayerWantReservedSlot(netadr_t* from, char* pbguid, char* userinfo, int authstate, qboolean *isallowed);
 	PCL void OnModuleLoaded(client_t* client, char* fullpath, long checksum);
 	PCL void OnScreenshotArrived(client_t* client, const char* path);
-	
+	PCL void OnDemoArrived(client_t* client,char *demoname);
 	//Following function gets called when the player has basic authentication completed. Here we got a pbguid, the uid which is a short steamid, rejectmsg can be written a text to but never exceed 1023 characters, returnNow will keep the client idle when set to true, client_t*
 	PCL void OnPlayerGotAuthInfo(netadr_t* from, uint64_t* playerid, uint64_t *steamid, char *rejectmsg /*never exceed a limit of 1023 chars*/, qboolean *returnNow, client_t* cl); //an unverified playerid, SteamID "steamIdPending" and "clanIdPending" is not getting verified yet at all - you can get this info from client_t* structure
   PCL void OnPlayerAddBan(baninfo_t* baninfo);
